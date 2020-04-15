@@ -20,10 +20,16 @@ import {
   import dotenv from "dotenv";
   dotenv.config();
   import Logger from "../util/Logger";
-  import { Guild } from "../entity/Guild.entity";
+  import config from "../config"
 
   interface ICustomClientOptions {
+	ownerId: string;
 	defaultPrefix: string;
+	leagueInvite: string;
+	leagueServerID: string;
+	leagueSite: string;
+	botVersion: string;
+	token: string | undefined;
   }
 
   export default class SporkLeagueClient extends AkairoClient {
@@ -41,7 +47,12 @@ import {
 	  clientOptions?: ClientOptions
 	) {
 	  super(options, clientOptions);
-
+	  this.options.leagueServerID = config.leagueServerID;
+	  this.options.defaultPrefix = config.defaultPrefix;
+	  this.options.leagueInvite = config.leagueInvite;
+	  this.options.leagueSite = config.leagueSite;
+	  this.options.botVersion = config.botVersion;
+		
 	  this.logger = new Logger();
 	  this.init();
 	}
@@ -68,10 +79,9 @@ import {
 
 	//   }, 1000 * 10);
 	  this.logger.info("Connected to DB", { tag: "Database" });
-  
 	  this.logger.log("Loading Commands....", { tag: "Command" });
 	  this.commandHandler = await new CommandHandler(this, {
-		prefix: ";",
+		prefix: this.options.defaultPrefix,
 		directory: path.join(__dirname, "..", "commands"),
 		allowMention: true,
 	  });

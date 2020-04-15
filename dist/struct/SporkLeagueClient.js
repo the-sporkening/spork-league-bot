@@ -11,10 +11,16 @@ const path_1 = __importDefault(require("path"));
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 const Logger_1 = __importDefault(require("../util/Logger"));
+const config_1 = __importDefault(require("../config"));
 class SporkLeagueClient extends discord_akairo_1.AkairoClient {
     // private inhibitorHandler!: InhibitorHandler;
     constructor(options, clientOptions) {
         super(options, clientOptions);
+        this.options.leagueServerID = config_1.default.leagueServerID;
+        this.options.defaultPrefix = config_1.default.defaultPrefix;
+        this.options.leagueInvite = config_1.default.leagueInvite;
+        this.options.leagueSite = config_1.default.leagueSite;
+        this.options.botVersion = config_1.default.botVersion;
         this.logger = new Logger_1.default();
         this.init();
     }
@@ -41,7 +47,7 @@ class SporkLeagueClient extends discord_akairo_1.AkairoClient {
         this.logger.info("Connected to DB", { tag: "Database" });
         this.logger.log("Loading Commands....", { tag: "Command" });
         this.commandHandler = await new discord_akairo_1.CommandHandler(this, {
-            prefix: ";",
+            prefix: this.options.defaultPrefix,
             directory: path_1.default.join(__dirname, "..", "commands"),
             allowMention: true,
         });

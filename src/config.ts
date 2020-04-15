@@ -3,9 +3,10 @@ dotenv.config();
 const bot = {
 	"ownerId": "113086797872918528",
 	"defaultPrefix": "sl!",
-	"leagueInvite": "https://discord.gg/sBEDtGf",
+	"botVersion": "Spork League 🏆 v0.0.1",
 	"leagueServerID": "698639619117285397",
-	"devSite": "league.getsporked.lol",
+	"leagueInvite": "https://discord.gg/sBEDtGf",
+	"leagueSite": "league.getsporked.lol",
 	"token": process.env.DISCORD_TOKEN
 }
 
