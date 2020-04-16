@@ -5,7 +5,7 @@ class PingCommand extends discord_akairo_1.Command {
     constructor() {
         super("ping", {
             aliases: ["ping"],
-            category: "categories.bot",
+            category: "general",
             description: "commands.ping.desc"
         });
     }

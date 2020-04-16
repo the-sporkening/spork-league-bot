@@ -11,18 +11,18 @@ class GuildMemberAddListener extends Listener {
     });
   }
   async exec(user: GuildMember) {
-	  if(user.guild.id == this.client.config.leagueServerID){
-		const exampleEmbed = new MessageEmbed()
-		  .setColor('#0099ff')
-		  .setTitle(`Welcome <@${user.id}>`)
-		  .setDescription('Some description here')
+	//   if(user.guild.id == this.client.config.leagueServerID){
+	// 	const exampleEmbed = new MessageEmbed()
+	// 	  .setColor('#0099ff')
+	// 	  .setTitle(`Welcome <@${user.id}>`)
+	// 	  .setDescription('Some description here')
 
-		  .addField('Inline field title', 'Some value here', true)
-		  .setImage('https://i.imgur.com/wSTFkRM.png')
-		  .setTimestamp()
-		  .setFooter(this.client.config.botVersion);
+	// 	  .addField('Inline field title', 'Some value here', true)
+	// 	  .setImage('https://i.imgur.com/wSTFkRM.png')
+	// 	  .setTimestamp()
+	// 	  .setFooter(this.client.config.botVersion);
 		  
-	  }
+	//   }
 	// guild.channels.cache.first()
   }
 }
