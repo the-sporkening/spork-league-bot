@@ -6,16 +6,16 @@ export class Lobby {
 	id!: number;
 
 	@Column()
-	discordId!: number;
+	discordId!: string;
 
 	@Column()
-	categoryId!: number;
+	categoryId?: string;
 	
 	@Column()
-    lobbyId!: number;
+    lobbyId?: string;
 
     @Column()
-	waitingRoomId?: number;
+	waitingRoomId?: string;
 	
 	@Column({default: 5})
     maxPlayerPerTeam?: number;

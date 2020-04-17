@@ -84,6 +84,9 @@ import {
 		prefix: this.options.defaultPrefix,
 		directory: path.join(__dirname, "..", "commands"),
 		allowMention: true,
+		blockBots: true,
+		handleEdits: true,
+		commandUtil: true
 	  });
 	  this.logger.info("Loaded Commands!", { tag: "Command" });
 

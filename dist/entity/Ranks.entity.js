@@ -21,13 +21,13 @@ __decorate([
     __metadata("design:type", String)
 ], Ranks.prototype, "discordId", void 0);
 __decorate([
-    typeorm_1.Column("jsonb", { default: { guildSearch: true } }),
-    __metadata("design:type", Object)
-], Ranks.prototype, "config", void 0);
-__decorate([
-    typeorm_1.Column({ default: 'sl!' }),
+    typeorm_1.Column(),
     __metadata("design:type", String)
-], Ranks.prototype, "prefix", void 0);
+], Ranks.prototype, "rankId", void 0);
+__decorate([
+    typeorm_1.Column(),
+    __metadata("design:type", Number)
+], Ranks.prototype, "pointsRequired", void 0);
 Ranks = __decorate([
     typeorm_1.Entity()
 ], Ranks);

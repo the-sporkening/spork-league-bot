@@ -1,19 +1,16 @@
 import { PrimaryGeneratedColumn, Column, Entity } from "typeorm";
 
 @Entity()
-export class Player {
+export class Vote {
     @PrimaryGeneratedColumn()
 	id!: number;
 
 	@Column()
 	userId!: string;
 
-	@Column({default: 0})
-	points?: number;
+	@Column()
+	matchId!: string;
 
-	@Column({default: 0})
-    wins?: number;
-
-    @Column({default: 0})
-    losses?: number;
+	@Column()
+	vote!: number;
 }

@@ -10,34 +10,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const typeorm_1 = require("typeorm");
-let Lobby = class Lobby {
+let Vote = class Vote {
 };
 __decorate([
     typeorm_1.PrimaryGeneratedColumn(),
     __metadata("design:type", Number)
-], Lobby.prototype, "id", void 0);
+], Vote.prototype, "id", void 0);
 __decorate([
     typeorm_1.Column(),
     __metadata("design:type", String)
-], Lobby.prototype, "discordId", void 0);
+], Vote.prototype, "userId", void 0);
 __decorate([
     typeorm_1.Column(),
     __metadata("design:type", String)
-], Lobby.prototype, "categoryId", void 0);
+], Vote.prototype, "matchId", void 0);
 __decorate([
     typeorm_1.Column(),
-    __metadata("design:type", String)
-], Lobby.prototype, "lobbyId", void 0);
-__decorate([
-    typeorm_1.Column(),
-    __metadata("design:type", String)
-], Lobby.prototype, "waitingRoomId", void 0);
-__decorate([
-    typeorm_1.Column({ default: 5 }),
     __metadata("design:type", Number)
-], Lobby.prototype, "maxPlayerPerTeam", void 0);
-Lobby = __decorate([
+], Vote.prototype, "vote", void 0);
+Vote = __decorate([
     typeorm_1.Entity()
-], Lobby);
-exports.Lobby = Lobby;
-//# sourceMappingURL=Lobby.entity.js.map
+], Vote);
+exports.Vote = Vote;
+//# sourceMappingURL=Vote.entity.js.map

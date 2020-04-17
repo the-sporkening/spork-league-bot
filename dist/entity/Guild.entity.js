@@ -21,10 +21,6 @@ __decorate([
     __metadata("design:type", String)
 ], Guild.prototype, "discordId", void 0);
 __decorate([
-    typeorm_1.Column("jsonb", { default: { guildSearch: true } }),
-    __metadata("design:type", Object)
-], Guild.prototype, "config", void 0);
-__decorate([
     typeorm_1.Column({ default: 'sl!' }),
     __metadata("design:type", String)
 ], Guild.prototype, "prefix", void 0);
