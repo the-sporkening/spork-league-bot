@@ -10,26 +10,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const typeorm_1 = require("typeorm");
-let Lobby = class Lobby {
+let Rank = class Rank {
 };
 __decorate([
     typeorm_1.PrimaryGeneratedColumn(),
     __metadata("design:type", Number)
-], Lobby.prototype, "id", void 0);
+], Rank.prototype, "id", void 0);
 __decorate([
     typeorm_1.Column(),
     __metadata("design:type", String)
-], Lobby.prototype, "discordId", void 0);
+], Rank.prototype, "discordId", void 0);
 __decorate([
     typeorm_1.Column(),
     __metadata("design:type", String)
-], Lobby.prototype, "lobbyId", void 0);
+], Rank.prototype, "rankId", void 0);
 __decorate([
     typeorm_1.Column(),
-    __metadata("design:type", String)
-], Lobby.prototype, "waitingRoomId", void 0);
-Lobby = __decorate([
+    __metadata("design:type", Number)
+], Rank.prototype, "pointsRequired", void 0);
+Rank = __decorate([
     typeorm_1.Entity()
-], Lobby);
-exports.Lobby = Lobby;
-//# sourceMappingURL=Lobby.entity copy.js.map
+], Rank);
+exports.Rank = Rank;
+//# sourceMappingURL=Rank.entity.js.map

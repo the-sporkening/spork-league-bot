@@ -10,18 +10,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const typeorm_1 = require("typeorm");
-let Match = class Match {
+let Queue = class Queue {
 };
 __decorate([
     typeorm_1.PrimaryGeneratedColumn(),
     __metadata("design:type", Number)
-], Match.prototype, "id", void 0);
+], Queue.prototype, "id", void 0);
 __decorate([
     typeorm_1.Column(),
     __metadata("design:type", String)
-], Match.prototype, "winningTeam", void 0);
-Match = __decorate([
+], Queue.prototype, "userId", void 0);
+__decorate([
+    typeorm_1.Column(),
+    __metadata("design:type", String)
+], Queue.prototype, "matchId", void 0);
+__decorate([
+    typeorm_1.Column(),
+    __metadata("design:type", Number)
+], Queue.prototype, "vote", void 0);
+Queue = __decorate([
     typeorm_1.Entity()
-], Match);
-exports.Match = Match;
-//# sourceMappingURL=Match.entity copy.js.map
+], Queue);
+exports.Queue = Queue;
+//# sourceMappingURL=Queue.entity.js.map

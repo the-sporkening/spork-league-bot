@@ -8,6 +8,6 @@ export class Guild {
   @Column()
 	discordId!: string;
 	
-  @Column({ default: 'sl!' })
+  @Column({ default: ';' })
   prefix?: string;
 }

@@ -60,7 +60,7 @@ import {
 	private async init() {
 	try {
 		this.db = await createConnection({
-			name: "default",
+		  name: "default",
 		  type: "postgres",
 		  url: process.env.POSTGRES_URL,
 		  synchronize: true,
@@ -120,5 +120,10 @@ import {
   
 	public successEmbed(description: string) {
 	  return this.embed({ description, color: "#43a047" });
+	}
+
+	public delay(ms: number)
+	{
+	return new Promise(resolve => setTimeout(resolve, ms));
 	}
   }

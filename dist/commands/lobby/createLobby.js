@@ -27,15 +27,20 @@ class CreateLobbyCommand extends Command_1.default {
             // TODO Check if guild is patron
             // TODO Check if guild has 1 lobby
             // Save lobby category to lobby record
-            this.lobbyRepository.insert({ discordId: category.guild.id, categoryId: category.id });
+            this.lobbyRepository.createQueryBuilder()
+                .insert()
+                .into(Lobby_entity_1.Lobby)
+                .values([{ discordId: category.guild.id, categoryId: category.id }])
+                .execute();
             category.guild.channels.create("lobby", { parent: category.id, type: "text" })
                 .then(channel => {
                 // Save lobby text channel to lobby record
                 this.lobbyRepository.createQueryBuilder()
                     .update(Lobby_entity_1.Lobby)
                     .set({ lobbyId: channel.id })
-                    .where("lobbyId = :id", { id: channel.id })
+                    .where("categoryId = :categoryId", { categoryId: category.id })
                     .execute();
+                this.client.delay(200);
             });
             category.guild.channels.create("Waiting Room", { parent: category.id, type: "voice" })
                 .then(channel => {
@@ -43,8 +48,9 @@ class CreateLobbyCommand extends Command_1.default {
                 this.lobbyRepository.createQueryBuilder()
                     .update(Lobby_entity_1.Lobby)
                     .set({ waitingRoomId: channel.id })
-                    .where("waitingRoomId = :id", { id: channel.id })
+                    .where("categoryId = :categoryId", { categoryId: category.id })
                     .execute();
+                this.client.delay(200);
             });
             let channels = category.children.size;
             this.client.logger.info(`Created lobby record for ${(_a = message.guild) === null || _a === void 0 ? void 0 : _a.id} with ${channels} channels`);

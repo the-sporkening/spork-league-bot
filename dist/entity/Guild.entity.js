@@ -21,7 +21,7 @@ __decorate([
     __metadata("design:type", String)
 ], Guild.prototype, "discordId", void 0);
 __decorate([
-    typeorm_1.Column({ default: 'sl!' }),
+    typeorm_1.Column({ default: ';' }),
     __metadata("design:type", String)
 ], Guild.prototype, "prefix", void 0);
 Guild = __decorate([

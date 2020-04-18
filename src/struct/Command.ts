@@ -5,6 +5,7 @@ import { Repository, getRepository } from "typeorm";
 import { Guild } from "../entity/Guild.entity";
 import { Lobby } from "../entity/Lobby.entity";
 import { Player } from "../entity/Player.entity";
+import { Rank } from "../entity/Rank.entity";
 import SporkLeagueClient from "./SporkLeagueClient";
 
 class CustomCommand extends Command {
@@ -12,11 +13,13 @@ class CustomCommand extends Command {
   guildRepository: Repository<Guild>;
   lobbyRepository: Repository<Lobby>;
   playerRepository: Repository<Player>;
+  rankRepository: Repository<Rank>;
   args?: ArgumentOptions[];
   categoryName?: string;
   guild?: Guild;
   lobby?: Lobby;
   player?: Player;
+  rank?: Rank;
 
   constructor(id: string, options: CommandOptions) {
     super(id, options);
@@ -25,6 +28,7 @@ class CustomCommand extends Command {
     this.guildRepository = getRepository(Guild);
     this.lobbyRepository = getRepository(Lobby);
     this.playerRepository = getRepository(Player);
+    this.rankRepository = getRepository(Rank);
   }
 }
 

@@ -8,13 +8,13 @@ export class Lobby {
 	@Column()
 	discordId!: string;
 
-	@Column()
+	@Column({default: null})
 	categoryId?: string;
 	
-	@Column()
+	@Column({default: null})
     lobbyId?: string;
 
-    @Column()
+    @Column({default: null})
 	waitingRoomId?: string;
 	
 	@Column({default: 5})

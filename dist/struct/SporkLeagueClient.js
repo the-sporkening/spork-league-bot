@@ -82,6 +82,9 @@ class SporkLeagueClient extends discord_akairo_1.AkairoClient {
     successEmbed(description) {
         return this.embed({ description, color: "#43a047" });
     }
+    delay(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
 }
 exports.default = SporkLeagueClient;
 //# sourceMappingURL=SporkLeagueClient.js.map

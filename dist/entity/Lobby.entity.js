@@ -21,15 +21,15 @@ __decorate([
     __metadata("design:type", String)
 ], Lobby.prototype, "discordId", void 0);
 __decorate([
-    typeorm_1.Column(),
+    typeorm_1.Column({ default: null }),
     __metadata("design:type", String)
 ], Lobby.prototype, "categoryId", void 0);
 __decorate([
-    typeorm_1.Column(),
+    typeorm_1.Column({ default: null }),
     __metadata("design:type", String)
 ], Lobby.prototype, "lobbyId", void 0);
 __decorate([
-    typeorm_1.Column(),
+    typeorm_1.Column({ default: null }),
     __metadata("design:type", String)
 ], Lobby.prototype, "waitingRoomId", void 0);
 __decorate([
