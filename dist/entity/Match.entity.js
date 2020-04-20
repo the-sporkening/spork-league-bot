@@ -19,6 +19,46 @@ __decorate([
 __decorate([
     typeorm_1.Column(),
     __metadata("design:type", String)
+], Match.prototype, "teamA1", void 0);
+__decorate([
+    typeorm_1.Column(),
+    __metadata("design:type", String)
+], Match.prototype, "teamA2", void 0);
+__decorate([
+    typeorm_1.Column(),
+    __metadata("design:type", String)
+], Match.prototype, "teamA3", void 0);
+__decorate([
+    typeorm_1.Column(),
+    __metadata("design:type", String)
+], Match.prototype, "teamA4", void 0);
+__decorate([
+    typeorm_1.Column(),
+    __metadata("design:type", String)
+], Match.prototype, "teamA5", void 0);
+__decorate([
+    typeorm_1.Column(),
+    __metadata("design:type", String)
+], Match.prototype, "teamB1", void 0);
+__decorate([
+    typeorm_1.Column(),
+    __metadata("design:type", String)
+], Match.prototype, "teamB2", void 0);
+__decorate([
+    typeorm_1.Column(),
+    __metadata("design:type", String)
+], Match.prototype, "teamB3", void 0);
+__decorate([
+    typeorm_1.Column(),
+    __metadata("design:type", String)
+], Match.prototype, "teamB4", void 0);
+__decorate([
+    typeorm_1.Column(),
+    __metadata("design:type", String)
+], Match.prototype, "teamB5", void 0);
+__decorate([
+    typeorm_1.Column({ default: null }),
+    __metadata("design:type", String)
 ], Match.prototype, "winningTeam", void 0);
 Match = __decorate([
     typeorm_1.Entity()

@@ -1,13 +1,13 @@
 import Command from "../../struct/Command";
 import { Message } from 'discord.js';
-import { Rank } from "../../entity/Rank.entity";
+import { Maps } from "../../entity/Maps.entity";
 
-class AddRankCommand extends Command {
+class AddMapsCommand extends Command {
   constructor() {
-    super("addRank", {
-      aliases: ["ar", "addrank", "addr"],
+    super("addMap", {
+      aliases: ["am", "addmap", "addm"],
       category: "lobby",
-	  description: "Add Rank to the league",
+	  description: "Add Maps to the league",
 	  args: [
 		{
 			id: 'role',
@@ -30,7 +30,6 @@ class AddRankCommand extends Command {
   }
 
   async exec(message: Message, args: any) {
-    // TODO Check if user has league moderator role
 	if(args.role != undefined){
 		const roleTest = await this.rankRepository.findOne({
 			where: { 
@@ -42,19 +41,19 @@ class AddRankCommand extends Command {
         if(roleTest?.rankId !== args.role.id){
           this.playerRepository.createQueryBuilder()
 			.insert()
-			.into(Rank)
+			.into(Maps)
 			.values([{
 				discordId: message.guild?.id, 
 				rankId: args.role.id, 
 				pointsRequired: args.points
 			}])
 			.execute();
-			message.channel.send(this.client.successEmbed(`Successfully registered <@&${args.role.id}> for ${args.points} points`))
+			message.channel.send(this.client.successEmbed(`Successfully added <MAPS HERE>`))
 		} else {
-			message.channel.send(this.client.errorEmbed("Rank already exists"))
+			message.channel.send(this.client.errorEmbed("Some kind of error"))
 		}
 	}
   }
 }
 
-export default AddRankCommand;
+export default AddMapsCommand;

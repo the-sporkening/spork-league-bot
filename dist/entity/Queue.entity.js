@@ -19,15 +19,15 @@ __decorate([
 __decorate([
     typeorm_1.Column(),
     __metadata("design:type", String)
-], Queue.prototype, "userId", void 0);
+], Queue.prototype, "discordId", void 0);
 __decorate([
     typeorm_1.Column(),
     __metadata("design:type", String)
-], Queue.prototype, "matchId", void 0);
+], Queue.prototype, "lobbyId", void 0);
 __decorate([
     typeorm_1.Column(),
-    __metadata("design:type", Number)
-], Queue.prototype, "vote", void 0);
+    __metadata("design:type", String)
+], Queue.prototype, "userId", void 0);
 Queue = __decorate([
     typeorm_1.Entity()
 ], Queue);

@@ -7,7 +7,9 @@ class CreateLobbyCommand extends Command {
     super("cl", {
       aliases: ["cl"],
       category: "general",
-      description: "Create Lobby Channel"
+      description: "Create Lobby Channel",
+      clientPermissions: ['MANAGE_CHANNELS'],
+      userPermissions: ['MANAGE_CHANNELS'],
     });
   }
 

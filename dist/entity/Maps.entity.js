@@ -10,26 +10,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const typeorm_1 = require("typeorm");
-let Guild = class Guild {
+let Maps = class Maps {
 };
 __decorate([
     typeorm_1.PrimaryGeneratedColumn(),
     __metadata("design:type", Number)
-], Guild.prototype, "id", void 0);
+], Maps.prototype, "id", void 0);
 __decorate([
     typeorm_1.Column(),
     __metadata("design:type", String)
-], Guild.prototype, "discordId", void 0);
+], Maps.prototype, "discordId", void 0);
 __decorate([
-    typeorm_1.Column("jsonb", { default: { guildSearch: true } }),
-    __metadata("design:type", Object)
-], Guild.prototype, "config", void 0);
-__decorate([
-    typeorm_1.Column({ default: 'sl!' }),
+    typeorm_1.Column(),
     __metadata("design:type", String)
-], Guild.prototype, "prefix", void 0);
-Guild = __decorate([
+], Maps.prototype, "lobbyId", void 0);
+__decorate([
+    typeorm_1.Column(),
+    __metadata("design:type", String)
+], Maps.prototype, "mapId", void 0);
+Maps = __decorate([
     typeorm_1.Entity()
-], Guild);
-exports.Guild = Guild;
+], Maps);
+exports.Maps = Maps;
 //# sourceMappingURL=Maps.entity.js.map

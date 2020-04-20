@@ -24,6 +24,14 @@ __decorate([
     typeorm_1.Column({ default: ';' }),
     __metadata("design:type", String)
 ], Guild.prototype, "prefix", void 0);
+__decorate([
+    typeorm_1.Column({ default: null }),
+    __metadata("design:type", String)
+], Guild.prototype, "adminRole", void 0);
+__decorate([
+    typeorm_1.Column({ default: null }),
+    __metadata("design:type", String)
+], Guild.prototype, "modRole", void 0);
 Guild = __decorate([
     typeorm_1.Entity()
 ], Guild);

@@ -11,7 +11,7 @@ const bot = {
     "botVersion": "Spork League 🏆 v0.0.1",
     "leagueServerID": "698639619117285397",
     "leagueInvite": "https://discord.gg/sBEDtGf",
-    "leagueSite": "league.getsporked.lol",
+    "leagueSite": "https://league.getsporked.lol",
     "token": process.env.DISCORD_TOKEN
 };
 exports.default = bot;

@@ -17,13 +17,15 @@ class ReadyListener extends Listener_1.default {
         const me = this.client.user;
         const guildSize = this.client.guilds.cache.size;
         this.client.logger.info(`Logged in as ${me === null || me === void 0 ? void 0 : me.tag} (ID: ${me === null || me === void 0 ? void 0 : me.id})`);
-        me === null || me === void 0 ? void 0 : me.setActivity(`;r | ;register`, { type: 'LISTENING' });
+        // me?.setActivity(`;r | ;register`, { type: 'LISTENING' });
+        me === null || me === void 0 ? void 0 : me.setActivity(`COMING SOON.....✅`, { type: 'LISTENING' });
         if (guildSize)
             this.client.logger.info(`Listening to ${guildSize === 1
                 ? this.client.guilds.cache.first()
                 : `${guildSize} Guilds`}`);
         else
             this.client.logger.info('Standby Mode');
+        // Create guild stuff for guilds that added bot when offline
         (_a = this.client) === null || _a === void 0 ? void 0 : _a.guilds.cache.map(guild => {
             this.guildRepository
                 .findOne({ discordId: guild.id })

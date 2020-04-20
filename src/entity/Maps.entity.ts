@@ -1,7 +1,7 @@
 import { PrimaryGeneratedColumn, Column, Entity } from "typeorm";
 
 @Entity()
-export class Queue {
+export class Maps {
     @PrimaryGeneratedColumn()
 	id!: number;
 
@@ -12,5 +12,5 @@ export class Queue {
 	lobbyId!: string;
 
 	@Column()
-	userId!: string;
+	mapId!: string;
 }

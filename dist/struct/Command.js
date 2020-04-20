@@ -9,6 +9,7 @@ const Guild_entity_1 = require("../entity/Guild.entity");
 const Lobby_entity_1 = require("../entity/Lobby.entity");
 const Player_entity_1 = require("../entity/Player.entity");
 const Rank_entity_1 = require("../entity/Rank.entity");
+const Queue_entity_1 = require("../entity/Queue.entity");
 const SporkLeagueClient_1 = __importDefault(require("./SporkLeagueClient"));
 class CustomCommand extends discord_akairo_1.Command {
     constructor(id, options) {
@@ -20,6 +21,7 @@ class CustomCommand extends discord_akairo_1.Command {
         this.lobbyRepository = typeorm_1.getRepository(Lobby_entity_1.Lobby);
         this.playerRepository = typeorm_1.getRepository(Player_entity_1.Player);
         this.rankRepository = typeorm_1.getRepository(Rank_entity_1.Rank);
+        this.queueRepository = typeorm_1.getRepository(Queue_entity_1.Queue);
     }
 }
 exports.default = CustomCommand;

@@ -10,7 +10,9 @@ class CreateLobbyCommand extends Command_1.default {
         super("cl", {
             aliases: ["cl"],
             category: "general",
-            description: "Create Lobby Channel"
+            description: "Create Lobby Channel",
+            clientPermissions: ['MANAGE_CHANNELS'],
+            userPermissions: ['MANAGE_CHANNELS'],
         });
     }
     async exec(message) {

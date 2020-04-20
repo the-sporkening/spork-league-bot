@@ -14,14 +14,15 @@ class ReadyListener extends Listener {
 	const guildSize = this.client.guilds.cache.size;
 
 	this.client.logger.info(`Logged in as ${me?.tag} (ID: ${me?.id})`);
-	me?.setActivity(`;r | ;register`, { type: 'LISTENING' });
+  // me?.setActivity(`;r | ;register`, { type: 'LISTENING' });
+  me?.setActivity(`COMING SOON.....✅`, { type: 'LISTENING' });
 
 	if (guildSize)
 	  this.client.logger.info(`Listening to ${guildSize === 1
 		? this.client.guilds.cache.first()
 		: `${guildSize} Guilds`}`);
 	else this.client.logger.info('Standby Mode');
-
+      // Create guild stuff for guilds that added bot when offline
     this.client?.guilds.cache.map(guild => {
       this.guildRepository
         .findOne({ discordId: guild.id })

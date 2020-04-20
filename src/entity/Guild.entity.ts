@@ -10,4 +10,10 @@ export class Guild {
 	
   @Column({ default: ';' })
   prefix?: string;
+
+  @Column({default: null})
+  adminRole?: string;
+
+  @Column({default: null})
+  modRole?: string;
 }
