@@ -4,7 +4,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const Command_1 = __importDefault(require("../../struct/Command"));
-const Rank_entity_1 = require("../../entity/Rank.entity");
 class AddRankCommand extends Command_1.default {
     constructor() {
         super("addRank", {
@@ -32,31 +31,29 @@ class AddRankCommand extends Command_1.default {
         });
     }
     async exec(message, args) {
-        var _a, _b;
         // TODO Check if user has league moderator role
-        if (args.role != undefined) {
-            const roleTest = await this.rankRepository.findOne({
-                where: {
-                    discordId: (_a = message.guild) === null || _a === void 0 ? void 0 : _a.id,
-                    rankId: args.role.id
-                }
-            });
-            if ((roleTest === null || roleTest === void 0 ? void 0 : roleTest.rankId) !== args.role.id) {
-                this.playerRepository.createQueryBuilder()
-                    .insert()
-                    .into(Rank_entity_1.Rank)
-                    .values([{
-                        discordId: (_b = message.guild) === null || _b === void 0 ? void 0 : _b.id,
-                        rankId: args.role.id,
-                        pointsRequired: args.points
-                    }])
-                    .execute();
-                message.channel.send(this.client.successEmbed(`Successfully registered <@&${args.role.id}> for ${args.points} points`));
-            }
-            else {
-                message.channel.send(this.client.errorEmbed("Rank already exists"));
-            }
-        }
+        // if (args.role != undefined) {
+        // 	const roleTest = await this.rankRepository.findOne({
+        // 		where: {
+        // 			discordId: message.guild?.id,
+        // 			rankId: args.role.id
+        // 		}
+        // 	});
+        // 	if (roleTest?.rankId !== args.role.id) {
+        // 		this.playerRepository.createQueryBuilder()
+        // 			.insert()
+        // 			.into(Rank)
+        // 			.values([{
+        // 				discordId: message.guild?.id,
+        // 				rankId: args.role.id,
+        // 				pointsRequired: args.points
+        // 			}])
+        // 			.execute();
+        // 		message.channel.send(this.client.successEmbed(`Successfully registered <@&${args.role.id}> for ${args.points} points`))
+        // 	} else {
+        // 		message.channel.send(this.client.errorEmbed("Rank already exists"))
+        // 	}
+        // }
     }
 }
 exports.default = AddRankCommand;

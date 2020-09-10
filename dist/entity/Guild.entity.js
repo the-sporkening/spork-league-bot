@@ -21,17 +21,9 @@ __decorate([
     __metadata("design:type", String)
 ], Guild.prototype, "discordId", void 0);
 __decorate([
-    typeorm_1.Column({ default: ';' }),
+    typeorm_1.Column(),
     __metadata("design:type", String)
-], Guild.prototype, "prefix", void 0);
-__decorate([
-    typeorm_1.Column({ default: null }),
-    __metadata("design:type", String)
-], Guild.prototype, "adminRole", void 0);
-__decorate([
-    typeorm_1.Column({ default: null }),
-    __metadata("design:type", String)
-], Guild.prototype, "modRole", void 0);
+], Guild.prototype, "settings", void 0);
 Guild = __decorate([
     typeorm_1.Entity()
 ], Guild);

@@ -12,8 +12,8 @@ const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 const Logger_1 = __importDefault(require("../util/Logger"));
 const config_1 = __importDefault(require("../config"));
+const ioredis_1 = __importDefault(require("ioredis"));
 class SporkLeagueClient extends discord_akairo_1.AkairoClient {
-    // private inhibitorHandler!: InhibitorHandler;
     constructor(options, clientOptions) {
         super(options, clientOptions);
         this.options.leagueServerID = config_1.default.leagueServerID;
@@ -21,10 +21,14 @@ class SporkLeagueClient extends discord_akairo_1.AkairoClient {
         this.options.leagueInvite = config_1.default.leagueInvite;
         this.options.leagueSite = config_1.default.leagueSite;
         this.options.botVersion = config_1.default.botVersion;
+        this.cache = new ioredis_1.default(process.env.REDIS_URL);
         this.logger = new Logger_1.default();
         this.init();
     }
     async init() {
+        this.cache.on('connect', {
+            this: .logger.info("Connected to Redis", { tag: "Redis" })
+        });
         try {
             this.db = await typeorm_1.createConnection({
                 name: "default",
@@ -42,11 +46,9 @@ class SporkLeagueClient extends discord_akairo_1.AkairoClient {
                 return existentConn;
             }
         }
-        //   setInterval(async () => {
-        //   }, 1000 * 10);
         this.logger.info("Connected to DB", { tag: "Database" });
         this.logger.log("Loading Commands....", { tag: "Command" });
-        this.commandHandler = await new discord_akairo_1.CommandHandler(this, {
+        this.commandHandler = new discord_akairo_1.CommandHandler(this, {
             prefix: this.options.defaultPrefix,
             directory: path_1.default.join(__dirname, "..", "commands"),
             allowMention: true,
@@ -60,13 +62,7 @@ class SporkLeagueClient extends discord_akairo_1.AkairoClient {
             directory: path_1.default.join(__dirname, "..", "events"),
         });
         this.logger.info("Loaded Listeners!", { tag: "Listener" });
-        //   this.logger.info("Loading Inhibitors....");
-        //   this.inhibitorHandler = new InhibitorHandler(this, {
-        // 	directory: path.join(__dirname, "..", "inhibitors"),
-        //   });
         this.commandHandler.useListenerHandler(this.listenerHandler);
-        //   this.commandHandler.useInhibitorHandler(this.inhibitorHandler);
-        //   this.inhibitorHandler.loadAll();
         this.listenerHandler.loadAll();
         this.commandHandler.loadAll();
     }

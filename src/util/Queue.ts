@@ -1,10 +1,31 @@
 import { Repository, getRepository } from 'typeorm';
-import { Queue } from './../entity/Queue.entity';
+import SporkLeagueClient from '../struct/SporkLeagueClient';
+// TODO Add queue to redis
 class QueueProvider {
-	queueRepository: Repository<Queue>;
+	client: SporkLeagueClient = new SporkLeagueClient();
 	constructor() {
-		this.queueRepository = getRepository(Queue);
-	  }
+	}
+	/**
+	 * joinQueue
+	 */
+	public async joinQueue(guildId: String, userId: String) {
+		try {
+			this.client.cache.set(`queue:${guildId}:${userId}`, ``);
+		} catch (err) {
+			this.client.logger.error(err, { tag: "Queue" });
+		}
+	}
+	/**
+	 * leaveQueue
+	 */
+	public async leaveQueue(guildId: String, userId: String) {
+		try {
+			this.client.cache.del(`queue:${guildId}:${userId}`);
+		} catch (err) {
+			this.client.logger.error(err, { tag: "Queue" });
+		}
+	}
 }
+
 
 export default QueueProvider;

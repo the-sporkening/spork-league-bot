@@ -5,12 +5,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const SporkLeagueClient_1 = __importDefault(require("./struct/SporkLeagueClient"));
 const config_js_1 = __importDefault(require("./config.js"));
-const client = new SporkLeagueClient_1.default();
-try {
-    client.login(config_js_1.default.token);
+class BotClient {
+    constructor() {
+        const client = new SporkLeagueClient_1.default();
+        try {
+            client.login(config_js_1.default.token);
+        }
+        catch (e) {
+            client.logger.stacktrace(e);
+        }
+    }
 }
-catch (e) {
-    client.logger.stacktrace(e);
-}
-exports.default = client;
+exports.default = BotClient;
 //# sourceMappingURL=bot.js.map

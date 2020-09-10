@@ -3,17 +3,12 @@ import { PrimaryGeneratedColumn, Column, Entity } from "typeorm";
 @Entity()
 export class Guild {
   @PrimaryGeneratedColumn()
-	id!: number;
+  id!: number;
 
   @Column()
-	discordId!: string;
-	
-  @Column({ default: ';' })
-  prefix?: string;
+  discordId!: string;
 
-  @Column({default: null})
-  adminRole?: string;
+  @Column()
+  settings?: string;
 
-  @Column({default: null})
-  modRole?: string;
 }
